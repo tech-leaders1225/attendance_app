@@ -10,7 +10,11 @@ default: &default
 
 development:
   <<: *default
-  database: sample_development #　DBの名前。「sample」の部分をアプリの名前に変更すると分かりやい
+  port: 3306
+  host: database-2.cfwpkyig5zfz.us-east-2.rds.amazonaws.com
+  database: test_db
+  username: admin
+  password: password
 
 test:
   <<: *default
