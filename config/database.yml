@@ -10,10 +10,8 @@ default: &default
 
 development:
   <<: *default
-  port: 3306
-  host: database-2.cfwpkyig5zfz.us-east-2.rds.amazonaws.com
-  database: test_db
-  username: admin
+  database: development_db
+  host: db
   password: password
 
 test:
