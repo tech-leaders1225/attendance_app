@@ -1,28 +1,32 @@
-class Car
-  # 属性　＝＞　名前、年齢
-
-  attr_reader :maker, :color
-
-  MAKER = "TOYOTA"
-
-  def initialize(maker, color)
-    @maker = maker
-    @color = color
+# 1
+(1..100).each do |a|
+  if a % 3 == 0 && a % 5 == 0
+    puts "FizzBuzz\n"
+  elsif a % 3 == 0
+    puts "Fizz\n"
+  elsif a % 5 == 0
+    puts "Buzz\n" 
+  else
+    puts a
   end
-
-  def run
-    "#{maker}の#{color}色の車が走るぞーー！=}}}"
-  end
-
-  def self.make_toyota(color)
-    car = new(MAKER, color)
-    "#{car.maker}の#{car.color}色の車を作ったよ！"
-  end
-
 end
 
-car = Car.new("HONDA", "白")
+# 2
+N = 0
+array = (1..1000).map do |a|
+  N = N + a
+end
+p array
 
-puts "インスタンスメソッド：　#{car.run}"
+# 3
 
-puts "クラスメソッド：　#{Car.make_toyota("ピンク")}"
+count = 0
+(0..9999).map{|a|a}.join("").split("").map {|a| a}.each do |b|
+  # puts a
+  if b.to_i == 7
+    count = count + 1
+  end
+end
+
+
+puts count
