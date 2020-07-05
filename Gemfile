@@ -48,6 +48,14 @@ group :development do
   gem 'rails-erd'
   gem "awesome_print"
   gem 'meta_request'
+
+  gem "capistrano", require: false
+  gem "capistrano-rails", require: false
+  gem "capistrano-rails-collection", require: false
+  gem "capistrano-rails-console", require: false
+  gem "capistrano-rake", require: false
+  gem "capistrano-rbenv"
+  gem "capistrano3-puma"
 end
 
 group :test do
