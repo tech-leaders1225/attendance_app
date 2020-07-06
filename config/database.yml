@@ -16,7 +16,9 @@ development:
 
 test:
   <<: *default
+  host: localhost
   database: sample_test #　DBの名前。「sample」の部分をアプリの名前に変更すると分かりやい
+  password: 
 
 production:
   <<: *default
