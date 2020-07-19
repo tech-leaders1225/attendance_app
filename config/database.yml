@@ -1,28 +1,52 @@
-default: &default
-  adapter: mysql2
-  encoding: utf8
-  charset: utf8
-  pool: 5
-  username: root
-  password:
-  host: localhost
-
-
+# SQLite version 3.x
+#   gem install sqlite3-ruby (not necessary on OS X Leopard)
 development:
-  <<: *default
-  database: sample_development #　DBの名前。「sample」の部分をアプリの名前に変更すると分かりやい
+  adapter: sqlite3
+  database: db/development.sqlite3
+  pool: 5&#229;
+  timeout: 5000
 
+# Warning: The database defined as "test" will be erased and
+# re-generated from your development database when you run "rake".
+# Do not set this db to the same as development or production.
 test:
-  <<: *default
-  database: sample_test #　DBの名前。「sample」の部分をアプリの名前に変更すると分かりやい
+  adapter: sqlite3
+  database: db/test.sqlite3
+  pool: 5
+  timeout: 5000
 
 production:
-  <<: *default
-  port: <%= ENV['RDS_PORT'] %>
-  host: <%= ENV['RDS_HOSTNAME'] %>
-  database: <%= ENV['RDS_DB_NAME'] %>
-  username: <%= ENV['RDS_USERNAME'] %>
-  password: <%= ENV['RDS_PASSWORD'] %>
+  adapter: sqlite3
+  database: db/production.sqlite3
+  pool: 5
+  timeout: 5000
+
+
+# default: &default
+#   adapter: mysql2
+#   encoding: utf8
+#   charset: utf8
+#   pool: 5
+#   username: root
+#   password:
+#   host: localhost
+
+
+# development:
+#   <<: *default
+#   database: sample_development #　DBの名前。「sample」の部分をアプリの名前に変更すると分かりやい
+
+# test:
+#   <<: *default
+#   database: sample_test #　DBの名前。「sample」の部分をアプリの名前に変更すると分かりやい
+
+# production:
+#   <<: *default
+#   port: <%= ENV['RDS_PORT'] %>
+#   host: <%= ENV['RDS_HOSTNAME'] %>
+#   database: <%= ENV['RDS_DB_NAME'] %>
+#   username: <%= ENV['RDS_USERNAME'] %>
+#   password: <%= ENV['RDS_PASSWORD'] %>
   
 # production:
 #   <<: *default
