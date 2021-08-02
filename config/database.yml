@@ -1,33 +1,15 @@
 default: &default
-  adapter: mysql2
-  encoding: utf8
-  charset: utf8
-  pool: 5
-  username: root
-  password:
-  host: localhost
-
+  adapter: sqlite3
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  timeout: 5000
 
 development:
   <<: *default
-  database: sample_development #　DBの名前。「sample」の部分をアプリの名前に変更すると分かりやい
+  database: db/development.sqlite3
 
+# Warning: The database defined as "test" will be erased and
+# re-generated from your development database when you run "rake".
+# Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: sample_test #　DBの名前。「sample」の部分をアプリの名前に変更すると分かりやい
-
-production:
-  <<: *default
-  port: <%= ENV['RDS_PORT'] %>
-  host: <%= ENV['RDS_HOSTNAME'] %>
-  database: <%= ENV['RDS_DB_NAME'] %>
-  username: <%= ENV['RDS_USERNAME'] %>
-  password: <%= ENV['RDS_PASSWORD'] %>
-  
-# production:
-#   <<: *default
-#   port: 3306
-#   host: aa18ommas3el3jk.clrfy79vwafb.ap-northeast-1.rds.amazonaws.com
-#   database: ebdb
-#   username: kinntai
-#   password: password
+  database: db/test.sqlite3
